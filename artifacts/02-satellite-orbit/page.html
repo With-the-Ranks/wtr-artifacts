@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02 — Satellite Orbit Globe</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1F2AFF; width: 100vw; height: 100vh; overflow: hidden; }
+    canvas { display: block; width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  <canvas id="c"></canvas>
+  <script type="module">
+    import { artifact, controls } from './index.ts'
+    import { mountControls } from '@shared/controls'
+
+    const canvas = document.getElementById('c')
+    const handle = artifact.mount(canvas)
+
+    let _config = { ...artifact.descriptor.defaults }
+    const origUpdate = handle.update.bind(handle)
+    handle.update = (patch) => {
+      Object.assign(_config, patch)
+      origUpdate(patch)
+    }
+
+    mountControls(controls, handle, () => _config)
+  </script>
+</body>
+</html>

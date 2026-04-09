@@ -1,0 +1,22 @@
+{
+  "name": "wtr-artifacts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "new": "tsx scripts/new-artifact.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "@types/three": "^0.169.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
+  },
+  "dependencies": {
+    "three": "^0.169.0"
+  }
+}
